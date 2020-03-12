@@ -2,6 +2,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:expense_manager/blocs/category_bloc.dart';
 import 'package:expense_manager/db/services/category_service.dart';
 import 'package:expense_manager/models/category_model.dart';
+// import 'package:expense_manager/routes/add_category.dart'
 // import 'package:expense_manager/routes/add_category.dart';
 import 'package:flutter/material.dart';
 import 'add_category.dart';
@@ -72,13 +73,13 @@ class _CategoryPageState extends State<CategoryPage> {
                             fontFamily: 'MaterialIcons'),
                         color: Theme.of(context).accentColor,
                       ),
-                      // trailing: IconButton(
-                      //   icon: Icon(
-                      //     Icons.delete,
-                      //   ), 
-                      //   color: Theme.of(context).primaryColorLight,
-                      //   onPressed: () => _categoryBloc.deleteCategory(category.id),
-                      // ),
+                      trailing: IconButton(
+                        icon: Icon(
+                          Icons.delete,
+                        ), 
+                        color: Theme.of(context).primaryColorLight,
+                        onPressed: () => _categoryBloc.deleteCategory(category.id),
+                      ),
                       title: Text(
                         category.title,
                         style: Theme.of(context)
