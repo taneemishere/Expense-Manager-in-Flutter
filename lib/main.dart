@@ -1,8 +1,9 @@
 import 'package:expense_manager/models/category_model.dart';
 import 'package:flutter/material.dart';
-
+import 'db/offline_db_provider.dart';
 // import 'dart:io';
 // import 'package:flutter/foundation.dart';
+// Above two imports were for the below Error handling code
 
 void main(){
 
@@ -12,7 +13,7 @@ void main(){
   //     exit(1);
   //   }
   // };
-
+  OfflineDbProvider.provider.initDB();
   runApp(MyApp(),
   );
 }
@@ -34,7 +35,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
-  
+  // CategoryBloc ctB;
+
   TabController _tabController;
 
   List<String> _tabs = ["Home", "Category", "Report"];
@@ -109,6 +111,15 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               ),
               color: Theme.of(context).accentColor,
             ),
+            trailing: IconButton(
+              icon: Icon(Icons.delete),
+              color: Theme.of(context).primaryColorLight, 
+              onPressed: () =>
+                  // ctB.deleteCategory(category.id)
+                print("Delete button in pressed"),
+                // _categoryBloc.deleteCategory(category.id)
+              
+              ),
             title: Text(
               category.title,
               style: Theme.of(context).textTheme.body2.copyWith(
@@ -159,11 +170,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         controller: _tabController,
         children: <Widget>[
           Center(
-            // child: Text(
-            //   "Home",
-            //   style: Theme.of(context).textTheme.display1,
-            // ),
-            child: _getCategoryTab(),
+            child: Text(
+              "Home",
+              style: Theme.of(context).textTheme.display1,
+            ),
+            // child: _getCategoryTab(),
           ),
 
           Center(
@@ -175,11 +186,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ),
           
           Center(
-            // child: Text(
-            //   "Report",
-            //   style: Theme.of(context).textTheme.display1,
-            // ),
-            child: _getCategoryTab(),
+            child: Text(
+              "Report",
+              style: Theme.of(context).textTheme.display1,
+            ),
+            // child: _getCategoryTab(),
           ),
           
         ],
