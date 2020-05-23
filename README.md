@@ -1,6 +1,6 @@
 # expense_manager
 
-Expence Manager is a cross platform mobile app that manages all your daily, weekly and monthly expences all under some different categories like home, vhicles etc. And do provides all the calculation of how much you spend while keeping all the data offline. No sign in required and no need of internet connection.
+Expense Manager is a cross platform mobile app designed in flutter that manages all your daily, weekly and monthly expenses all under some different categories like home, vhicles etc. And do provides all the calculation of how much you spend while keeping all the data offline. No sign in required and no need of internet connection.
 
 ## Getting Started
 
